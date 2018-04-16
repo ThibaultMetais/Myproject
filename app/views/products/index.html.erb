@@ -1,0 +1,8 @@
+<h2>All products</h2><br>
+
+
+<ul style="list-style-type: none;">
+  <% @products.each do |product| %>
+    <li><%= link_to product.name, product %></li><br><br>
+  <% end %>
+</ul>
