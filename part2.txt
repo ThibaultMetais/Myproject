@@ -1,0 +1,39 @@
+Question 1 : (SQL)
+
+Imagine that you have one table (buildings for example)
+in your database which references items from another table (residents for example).
+
+A N+1 query problem is about the queries that involves to select some
+items from the second table according to some of their arguments.
+
+If you want to have a list of all the building and their corresponding residents,
+you can be tempted to write :
+
+SELECT * FROM buildings (
+  SELECT * FROM residents WHERE residents.buildingNumber = buildings.number
+);
+
+This will make 1 query for all the buildings, then N queries for the N residents.
+That is why this is called the N+1 query problem.
+The time used for N queries and the time used for a query with N result is not the same :
+we always try to limit the number of queries to gain some time.
+
+So the solution here could be to to a JOIN instruction between the two tables in order to
+do the same in one query :
+
+SELECT * FROM buildings JOIN residents ON residents.buildingNumber = buildings.number;
+
+
+Question 2 : (SQL)
+
+For this problem, I would just do a query in order to keep only the wanted columns,
+and then a query in order to select the wanted products.
+
+I think it would save some time by not checking all the arguments of the products.
+
+If what we need is only the name of the products, we can do :
+
+SELECT * FROM (
+  SELECT name, published FROM products
+) products_short
+WHERE products_short.published = true;
