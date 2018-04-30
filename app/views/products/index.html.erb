@@ -1,8 +1,22 @@
-<h2>All products</h2><br>
+<div class="container">
 
+  <h2>All products</h2>
 
-<ul style="list-style-type: none;">
-  <% @products.each do |product| %>
-    <li><%= link_to product.name, product %></li><br><br>
-  <% end %>
-</ul>
+  <table class="striped">
+     <thead>
+       <tr>
+           <th>Name</th>
+       </tr>
+     </thead>
+
+     <tbody>
+
+    <% @products.each do |product| %>
+      <tr><td><%= link_to product.name, product %></td></tr>
+    <% end %>
+
+    </tbody>
+
+</table>
+
+</div>

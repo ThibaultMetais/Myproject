@@ -1,22 +1,26 @@
-<h1>Sign Up</h1>
+<div class="container">
+
+  <h1>Sign Up</h1>
 
 
-  <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
-      <p> Username:</br> <%= f.text_field :username%> </p>
-      <p> Password:</br> <%= f.password_field :password%></p>
-      <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
-      <%= fields_for :company do |f2| %>
-        <p> Your Company:</br> <%= f2.text_field :company_name %></p>
+    <%= form_for(:user, :url => {:controller => 'users', :action => 'create'}) do |f| %>
+        <p> Username:</br> <%= f.text_field :username%> </p>
+        <p> Password:</br> <%= f.password_field :password%></p>
+        <p> Password Confirmation:</br> <%= f.password_field :password_confirmation%> </p>
+        <%= fields_for :company do |f2| %>
+          <p> Your Company:</br> <%= f2.text_field :company_name %></p>
+        <% end %>
+      <%= f.submit class: 'btn waves-effect waves-light red'%>
+    <% end %><br>
+
+    <% if @user.errors.any? %>
+      <ul class="Signup_Errors">
+      <% for message_error in @user.errors.full_messages %>
+        <li>* <%= message_error %></li>
       <% end %>
-    <%= f.submit :Signup %>
-  <% end %><br>
-
-  <% if @user.errors.any? %>
-    <ul class="Signup_Errors">
-    <% for message_error in @user.errors.full_messages %>
-      <li>* <%= message_error %></li>
+      </ul>
     <% end %>
-    </ul>
-  <% end %>
 
-  <%= flash[:notice] %>
+    <%= flash[:notice] %>
+
+</div>

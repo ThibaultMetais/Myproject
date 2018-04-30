@@ -1,16 +1,20 @@
-<h1>Sign Up</h1>
+<div class="container">
+
+  <h1>Sign Up</h1>
 
 
-  <%= form_for(:company, :url => {:controller => 'companies', :action => 'create'}) do |f| %>
-    <p> Name of the company:</br><%= f.text_field :name %> </p>
-    <p> Description of the company:</br><%= f.text_field :description %> </p>
-    <%= f.submit :Signup %>
-  <% end %>
-
-  <% if @company.errors.any? %>
-    <ul class="Signup_Errors">
-    <% for message_error in @user.errors.full_messages %>
-      <li>* <%= message_error %></li>
+    <%= form_for(:company, :url => {:controller => 'companies', :action => 'create'}) do |f| %>
+      <p> Name of the company:</br><%= f.text_field :name %> </p>
+      <p> Description of the company:</br><%= f.text_field :description %> </p>
+      <%= f.submit :Signup class: 'btn waves-effect waves-light'%>
     <% end %>
-    </ul>
-  <% end %>
+
+    <% if @company.errors.any? %>
+      <ul class="Signup_Errors">
+      <% for message_error in @user.errors.full_messages %>
+        <li>* <%= message_error %></li>
+      <% end %>
+      </ul>
+    <% end %>
+
+</div>

@@ -1,11 +1,17 @@
-<h2>Product Characteristics</h2><br>
+<div class="container">
 
-<ul style="list-style-type: none;">
-  <li><strong>Name of the product</strong></li><br>
-  <li><%= @product.name %></li><br>
-  <li><strong>Description</strong></li><br>
-  <li><%= @product.description %></li><br><br><br>
-</ul><br>
+  <h2>Product Characteristics</h2><br>
 
 
-<%= link_to "Back to company", @companyURL, class: 'button'  %> <%= link_to "Back to products", "/products", class: 'button'  %>
+  <ul style="list-style-type: none;">
+    <li><h5>Name of the product</h5></li><br>
+    <li><%= @product.name %></li><br>
+    <li><h5>Description</h5></li><br>
+    <li><%= @product.description %></li><br><br><br>
+  </ul><br>
+
+
+  <%= link_to "Back to company", @companyURL, class: 'btn waves-effect waves-light red'  %> <%= link_to "Back to products", "/products", class: 'btn waves-effect waves-light red'  %>
+
+
+</div>

@@ -1,11 +1,28 @@
-<h2><%= @company.name %> products</h2><br>
+<div class="container">
 
-<ul style="list-style-type: none;">
-  <% @products.each do |product| %>
-    <% if @company.id == product.company_id %>
-      <li><%= link_to product.name, product %></li><br><br>
+  <h2><%= @company.name %> products</h2>
+
+  <table class="striped">
+     <thead>
+       <tr>
+           <th>Name</th>
+       </tr>
+     </thead>
+
+     <tbody>
+
+    <% @products.each do |product| %>
+      <% if @company.id == product.company_id %>
+        <tr><td><%= link_to product.name, product %></td></tr>
+      <% end %>
     <% end %>
-  <% end %>
-</ul><br>
 
-<%= link_to "Back", "/", class: 'button'  %>
+  </tbody>
+
+</table>
+
+  <br>
+
+  <%= link_to "Back", "/", class: 'btn waves-effect waves-light red'  %>
+
+</div>

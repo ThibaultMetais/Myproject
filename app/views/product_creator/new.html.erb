@@ -1,35 +1,39 @@
-<h2>New Product</h2>
+<div class="container">
+
+  <h2>New Product</h2>
 
 
-<%= form_for(:product, :url => {:controller => 'products', :action => 'create'}) do |form| %>
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
+  <%= form_for(:product, :url => {:controller => 'products', :action => 'create'}) do |form| %>
+    <p>
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+    </p>
 
-  <p>
-    <%= form.label :decription %><br>
-    <%= form.text_area :description %>
-  </p>
+    <p>
+      <%= form.label :decription %><br>
+      <%= form.text_area :description %>
+    </p>
 
-  <p>
-    <%= form.submit %>
-  </p>
+    <p>
+      <%= form.submit  class: 'btn waves-effect waves-light'%>
+    </p>
 
-<% end %>
+  <% end %>
 
-<% if @product.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@product.errors.count, "error") %> prohibited
-      this product from being saved:
-    </h2>
-    <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@product.errors.count, "error") %> prohibited
+        this product from being saved:
+      </h2>
+      <ul>
+        <% @product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= flash[:notice] %>
+  <%= flash[:notice] %>
+
+</div>
