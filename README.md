@@ -1,24 +1,13 @@
-# README
+# Simple e-commerce website
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repository contains a working Ruby on Rails project implementing an e-commerce website.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 1.16.1, Rails version 5.1.6
 
-* System dependencies
+* System dependencies available in the Gemfile.lock
 
-* Configuration
+* Create database, link it by modifying the file in /config/database.yml and run migrations
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Run the server : rails server (or "ruby bin\rails" server on Windows)
